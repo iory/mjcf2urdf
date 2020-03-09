@@ -32,13 +32,15 @@ if sys.argv[-1] == "release":
 
 
 setup_requires = []
-install_requires = []
+install_requires = [
+    'pybullet',
+]
 
 
 setup(
     name="mjcf2urdf",
     version=version,
-    description="A python library",
+    description="A converter for MuJoCo mjcf to URDF format",
     author="iory",
     author_email="ab.ioryz@gmail.com",
     url="https://github.com/iory/mjcf2urdf",
@@ -61,4 +63,7 @@ setup(
     zip_safe=False,
     setup_requires=setup_requires,
     install_requires=install_requires,
+    entry_points={'console_scripts':
+                  ['mjcf2urdf='
+                   'mjcf2urdf.apps.mjcf2urdf:main']},
 )
